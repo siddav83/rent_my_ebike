@@ -1,2 +1,25 @@
-<h1>hello</h1>
+<div class="container">
+  <h1>EBIKES</h1>
+  <div class="index-body">
+    <div class="cards">
+      <% @ebike.each do |ebike| %>
+        <div class="card mb-3">
+          <div class="card-image">
+            <!-- #empty for now -->
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= ebike.name %></h5>
+            <p class="card-text"><%= ebike.description.truncate(50) %></p>
+            <div class="link-and-price">
+              <p class="card-link"><%= link_to "Step inside", ebike_path(ebike) %></p>
+              <p class="card-price">£<%= ebike.cost %></p>
+            </div>
 
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>

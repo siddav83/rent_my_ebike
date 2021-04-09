@@ -1,0 +1,43 @@
+<div id="show_page">
+  <div class="header_and_photos">
+    <div class="header_and_location">
+      <div class="header">
+        <h3><%= @ebike.name.upcase %></h3>
+      </div>
+      <div class="location">
+        <p><i class="fas fa-star"></i> <%= @ebike.rating %> | superhost <i class="fas fa-heart"></i> |  <%= @ebike.location %> | <i class="fas fa-wifi"></i>   <i class="fas fa-space-shuttle"></i></p>
+      </div>
+    </div>
+    <div class="photo_and_bookings">
+      <div class="photo">
+
+      </div>
+      <div class="bookings-form">
+        <%= render "bookings_form" %>
+
+      </div>
+    </div>
+    <hr class="hr">
+    <div class=showpage-btn-container>
+      <% if current_user && current_user.ebike.include?(@ebike) %>
+        <%= link_to 'Edit', edit_ebike_path, class: 'edit-delete-btn' %>
+
+        <%= link_to "Delete",ebike_path(@ebike), class: 'edit-delete-btn',
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+    <div class="show_info">
+      <p class="show_card_text"><strong><%= @ebike.name.upcase %></strong></p>
+      <p class="show_card_text">Price: £<%= @ebike.cost %>/day</p>
+      <br>
+      <p class="text">Description: <%= @ebike.description %></p>
+      <br>
+    </div>
+    <div class="">
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'bookings_new' %>
+

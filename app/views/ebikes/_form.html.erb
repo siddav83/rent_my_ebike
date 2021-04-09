@@ -1,0 +1,14 @@
+<div class="fg-container">
+
+  <%= simple_form_for(@ebike) do |f| %>
+    <div class="fg-form">
+      <%= f.input :name, placeholder:'Equipment Name'%>
+      <%= f.input :cost, placeholder:'Cost' %>
+      <%= f.input :location, placeholder:'Location' %>
+      <%= f.input :description , placeholder:'Description'%>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "cta-btn" %>
+    </div>
+  <% end %>
+
+</div>
